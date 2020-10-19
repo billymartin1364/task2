@@ -14,3 +14,10 @@
     service:
       name: httpd
       enabled: yes
+
+  - name: Install wget unzip
+    yum:
+      name:
+      - unzip
+      - wget
+      state: latest
