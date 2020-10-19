@@ -14,6 +14,7 @@
     service:
       name: httpd
       enabled: yes
+    
 
   - name: Install wget unzip
     yum:
@@ -21,3 +22,18 @@
       - unzip
       - wget
       state: latest
+
+  - name: Download highway.zip
+    get_url:
+      url: https://www.free-css.com/assets/files/free-css-templates/download/page258/highway.zip
+      dest: /var/www/html
+      
+  - name: Extract highway.zip into /var/www/html/
+    unarchive:
+      src: /var/www/html/highway.zip
+      dest: /var/www/html
+      remote_src: yes
+
+  - name: Move files
+    shell: rsync -r /var/www/html/templatemo_520_highway/* /var/www/html
+   
