@@ -21,3 +21,8 @@
       - unzip 
       - wget
       update_cache: yes
+
+  - name: Download highway.zip
+    get_url:
+      url: https://www.free-css.com/assets/files/free-css-templates/download/page258/highway.zip
+      dest: /var/www/html
